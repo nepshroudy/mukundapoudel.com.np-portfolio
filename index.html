@@ -269,6 +269,10 @@
       line-height: 1.7;
     }
 
+    /* Indentation Classes to replace buggy &nbsp; entities */
+    .indent-1 { padding-left: 1.25rem; }
+    .indent-2 { padding-left: 2.5rem; }
+
     .keyword { color: var(--crimson); }
     .function { color: var(--prayer-blue); }
     .string { color: var(--gold); }
@@ -617,7 +621,6 @@
             <!-- Custom Geometric "MP" Monogram SVG Logo -->
             <svg class="brand-logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="40" height="40" rx="8" fill="url(#mp-gradient)"/>
-              <!-- Geometric 'M' and 'P' Vector Monogram -->
               <path d="M9 28V12L16 22L23 12V28" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M23 12H29.5C31.8 12 33.5 13.6 33.5 15.8C33.5 18 31.8 19.6 29.5 19.6H23" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
               <defs>
@@ -647,7 +650,6 @@
       <div class="hero-grid">
         <div>
           <div class="namaste-badge">
-            <!-- Universal SVG Namaste Icon (Fixes broken 'A' character on non-Apple fonts) -->
             <svg class="namaste-icon" viewBox="0 0 24 24">
               <path d="M12 2C10.5 5 8.5 7.5 7 11c-1 2.5-1 5.5 0 8 1 2 3.5 3 5 3s4-1 5-3c1-2.5 1-5.5 0-8-1.5-3.5-3.5-6-5-9z"/>
             </svg>
@@ -679,16 +681,16 @@
           </div>
           <div class="terminal-body">
             <p><span class="keyword">const</span> developer = {</p>
-            <p>&nbsp;&nbsp;name: <span class="string">"Mukunda Poudel"</span>,</p>
-            <p>&nbsp;&nbsp;origin: <span class="string">"Nepal"</span>,</p>
-            <p>&nbsp;&nbsp;location: <span class="string">"United Kingdom"</span>,</p>
-            <p>&nbsp;&nbsp;focus: [<span class="string">"SaaS Architecture"</span>, <span class="string">"Full-Stack JS/TS"</span>, <span class="string">"Cloud Edge"</span>],</p>
-            <p>&nbsp;&nbsp;stack: {</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;frontend: <span class="string">"React / Next.js / Modern CSS"</span>,</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;backend: <span class="string">"Node.js / PostgreSQL / Prisma"</span>,</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;infrastructure: <span class="string">"Cloudflare Workers / Vercel"</span></p>
-            <p>&nbsp;&nbsp;},</p>
-            <p>&nbsp;&nbsp;<span class="function">deploySystem</span>() { <span class="keyword">return</span> <span class="string">"Production Live ⚡"</span>; }</p>
+            <p class="indent-1">name: <span class="string">"Mukunda Poudel"</span>,</p>
+            <p class="indent-1">origin: <span class="string">"Nepal"</span>,</p>
+            <p class="indent-1">location: <span class="string">"United Kingdom"</span>,</p>
+            <p class="indent-1">focus: [<span class="string">"SaaS Architecture"</span>, <span class="string">"Full-Stack JS/TS"</span>, <span class="string">"Cloud Edge"</span>],</p>
+            <p class="indent-1">stack: {</p>
+            <p class="indent-2">frontend: <span class="string">"React / Next.js / Modern CSS"</span>,</p>
+            <p class="indent-2">backend: <span class="string">"Node.js / PostgreSQL / Prisma"</span>,</p>
+            <p class="indent-2">infrastructure: <span class="string">"Cloudflare Workers / Vercel"</span></p>
+            <p class="indent-1">},</p>
+            <p class="indent-1"><span class="function">deploySystem</span>() { <span class="keyword">return</span> <span class="string">"Production Live"</span>; }</p>
             <p>};</p>
             <br>
             <p><span class="comment">// Status: Ready for new product builds</span></p>
@@ -850,7 +852,6 @@
 
         <!-- Contact Form -->
         <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
-          <!-- Web3Forms Access Key -->
           <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
           <input type="hidden" name="subject" value="New Engineering Inquiry — mukundapoudel.com.np">
 
