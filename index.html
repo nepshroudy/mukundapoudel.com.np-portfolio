@@ -342,6 +342,47 @@
         padding: 4rem 0 3rem 0;
       }
     }
+
+    /* Contact Form Styles */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 520px;
+  margin: 0 auto 2.5rem auto;
+  text-align: left;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  background: var(--bg);
+  color: var(--text-main);
+  transition: border-color 0.2s;
+}
+
+.form-input:focus, .form-textarea:focus {
+  outline: none;
+  border-color: var(--text-main);
+}
   </style>
 </head>
 <body>
@@ -475,21 +516,45 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
-      <div class="contact-box">
-        <h2 class="section-title">Let’s Build Something Together</h2>
-        <p>
-          I’m always open to discussing new startup ideas, digital product collaborations, freelance engagements, and tech partnerships.
-        </p>
-        <a href="mailto:hello@mukundapoudel.com.np" class="btn btn-primary">Send an Email</a>
-        
-        <div class="contact-details">
-          <a href="mailto:hello@mukundapoudel.com.np" class="contact-item">hello@mukundapoudel.com.np</a>
-          <a href="https://github.com/nepshroudy" target="_blank" rel="noopener noreferrer" class="contact-item">github.com/nepshroudy</a>
-          <a href="https://mukundapoudel.com.np" class="contact-item">mukundapoudel.com.np</a>
-        </div>
+    <!-- Contact Section -->
+<section id="contact">
+  <div class="contact-box">
+    <h2 class="section-title">Let’s Build Something Together</h2>
+    <p>
+      I’m always open to discussing new startup ideas, digital product collaborations, freelance engagements, and tech partnerships.
+    </p>
+
+    <!-- Embedded Contact Form -->
+    <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+      <!-- Paste your Web3Forms Access Key here -->
+      <input type="hidden" name="access_key" value="b8a1bb41-8c61-4daf-8318-adbbba57be31">
+      <input type="hidden" name="subject" value="New Portfolio Message from mukundapoudel.com.np">
+      
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" class="form-input" placeholder="e.g. Alex Smith" required>
       </div>
-    </section>
+
+      <div class="form-group">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" class="form-input" placeholder="alex@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" class="form-textarea" placeholder="Tell me about your project or idea..." required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+    </form>
+    
+    <div class="contact-details">
+      <a href="mailto:hello@mukundapoudel.com.np" class="contact-item">hello@mukundapoudel.com.np</a>
+      <a href="https://github.com/nepshroudy" target="_blank" rel="noopener noreferrer" class="contact-item">github.com/nepshroudy</a>
+      <a href="https://mukundapoudel.com.np" class="contact-item">mukundapoudel.com.np</a>
+    </div>
+  </div>
+</section>
 
   </main>
 
