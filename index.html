@@ -134,23 +134,21 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.85rem;
       font-weight: 800;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       letter-spacing: -0.02em;
     }
 
-    .brand-icon {
-      width: 32px;
-      height: 32px;
-      background: linear-gradient(135deg, var(--crimson), var(--gold));
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 0.9rem;
-      font-weight: 800;
+    .brand-logo-svg {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .brand:hover .brand-logo-svg {
+      transform: scale(1.05) rotate(-2deg);
     }
 
     .nav-links {
@@ -195,6 +193,12 @@
       font-size: 0.85rem;
       font-weight: 700;
       margin-bottom: 1.5rem;
+    }
+
+    .namaste-icon {
+      width: 16px;
+      height: 16px;
+      fill: var(--crimson);
     }
 
     .hero-title {
@@ -379,7 +383,6 @@
       overflow: hidden;
     }
 
-    /* Dhaka Top Accent on Hover */
     .project-card::before {
       content: "";
       position: absolute;
@@ -611,7 +614,19 @@
       <div class="container">
         <nav>
           <a href="#" class="brand">
-            <div class="brand-icon">M</div>
+            <!-- Custom Geometric "MP" Monogram SVG Logo -->
+            <svg class="brand-logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="8" fill="url(#mp-gradient)"/>
+              <!-- Geometric 'M' and 'P' Vector Monogram -->
+              <path d="M9 28V12L16 22L23 12V28" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M23 12H29.5C31.8 12 33.5 13.6 33.5 15.8C33.5 18 31.8 19.6 29.5 19.6H23" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="mp-gradient" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#E63946"/>
+                  <stop offset="1" stop-color="#E5A93C"/>
+                </linearGradient>
+              </defs>
+            </svg>
             Mukunda Poudel
           </a>
           <ul class="nav-links">
@@ -632,7 +647,11 @@
       <div class="hero-grid">
         <div>
           <div class="namaste-badge">
-            <span>🙏</span> नमस्ते • UK & Nepal
+            <!-- Universal SVG Namaste Icon (Fixes broken 'A' character on non-Apple fonts) -->
+            <svg class="namaste-icon" viewBox="0 0 24 24">
+              <path d="M12 2C10.5 5 8.5 7.5 7 11c-1 2.5-1 5.5 0 8 1 2 3.5 3 5 3s4-1 5-3c1-2.5 1-5.5 0-8-1.5-3.5-3.5-6-5-9z"/>
+            </svg>
+            नमस्ते • UK & Nepal
           </div>
           <h1 class="hero-title">
             Product Engineer & <span class="highlight">Full-Stack Architect</span>
@@ -661,18 +680,19 @@
           <div class="terminal-body">
             <p><span class="keyword">const</span> developer = {</p>
             <p>&nbsp;&nbsp;name: <span class="string">"Mukunda Poudel"</span>,</p>
-            <p>&nbsp;&nbsp;origin: <span class="string">"Nepal 🇳🇵"</span>,</p>
-            <p>&nbsp;&nbsp;location: <span class="string">"United Kingdom 🇬🇧"</span>,</p>
+            <p>&nbsp;&nbsp;origin: <span class="string">"Nepal"</span>,</p>
+            <p>&nbsp;&nbsp;location: <span class="string">"United Kingdom"</span>,</p>
             <p>&nbsp;&nbsp;focus: [<span class="string">"SaaS Architecture"</span>, <span class="string">"Full-Stack JS/TS"</span>, <span class="string">"Cloud Edge"</span>],</p>
             <p>&nbsp;&nbsp;stack: {</p>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;frontend: <span class="string">"React / Next.js / Modern CSS"</span>,</p>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;backend: <span class="string">"Node.js / PostgreSQL / Prisma"</span>,</p>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;infrastructure: <span class="string">"Cloudflare Workers / Vercel"</span></p>
-            <p>&nbsp;&nbsp;}</p>
+            <p>&nbsp;&nbsp;},</p>
+            <p>&nbsp;&nbsp;<span class="function">deploySystem</span>() { <span class="keyword">return</span> <span class="string">"Production Live ⚡"</span>; }</p>
             <p>};</p>
             <br>
             <p><span class="comment">// Status: Ready for new product builds</span></p>
-            <p><span class="function">developer</span>.deploySystem(); <span class="keyword">⚡</span></p>
+            <p><span class="function">developer</span>.deploySystem();</p>
           </div>
         </div>
       </div>
