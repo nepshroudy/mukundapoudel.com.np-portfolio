@@ -176,8 +176,8 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 3.5rem;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 3rem;
       align-items: center;
     }
 
@@ -202,7 +202,7 @@
     }
 
     .hero-title {
-      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      font-size: clamp(2.4rem, 4.8vw, 3.8rem);
       font-weight: 800;
       line-height: 1.15;
       letter-spacing: -0.03em;
@@ -263,13 +263,14 @@
     }
 
     .terminal-body {
-      padding: 1.5rem;
-      font-size: 0.85rem;
+      padding: 1.25rem 1.4rem;
+      font-size: 0.78rem; /* Slightly smaller size so code fits on one line */
       color: #D1D5DB;
-      line-height: 1.7;
+      line-height: 1.65;
+      overflow-x: auto;
     }
 
-    /* Indentation Classes to replace buggy &nbsp; entities */
+    /* Clean Terminal Indentation */
     .indent-1 { padding-left: 1.25rem; }
     .indent-2 { padding-left: 2.5rem; }
 
@@ -671,7 +672,7 @@
           </div>
         </div>
 
-        <!-- Interactive Terminal Widget -->
+        <!-- Terminal Window Widget -->
         <div class="terminal-window">
           <div class="terminal-header">
             <div class="dot dot-red"></div>
@@ -690,13 +691,15 @@
             <p class="indent-2">backend: <span class="string">"Node.js / PostgreSQL / Prisma"</span>,</p>
             <p class="indent-2">infrastructure: <span class="string">"Cloudflare Workers / Vercel"</span></p>
             <p class="indent-1">},</p>
-            <p class="indent-1"><span class="function">deploySystem</span>() { <span class="keyword">return</span> <span class="string">"Production Live"</span>; }</p>
+            <p class="indent-1"><span class="function">deploySystem</span>() { <span class="keyword">return</span> <span class="string">"Production Live ⚡"</span>; }</p>
             <p>};</p>
             <br>
             <p><span class="comment">// Status: Ready for new product builds</span></p>
             <p><span class="function">developer</span>.deploySystem();</p>
+            <p style="color: var(--prayer-green); font-weight: 600; margin-top: 0.25rem;">&gt; "Production Live ⚡"</p>
           </div>
         </div>
+
       </div>
     </section>
 
