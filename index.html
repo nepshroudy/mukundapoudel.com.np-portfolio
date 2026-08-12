@@ -19,13 +19,14 @@
       --card-hover: #161D2F;
       --border: rgba(229, 169, 60, 0.18);
       --border-bright: rgba(229, 169, 60, 0.4);
-      
+
       /* Accents */
       --crimson: #E63946;        /* National Flower Rhododendron / Crimson */
       --gold: #E5A93C;           /* Brass & Sacred Gold */
       --prayer-blue: #3A86EF;     /* Prayer Flag Blue */
       --prayer-green: #38B000;    /* Prayer Flag Green */
-      
+      --holo-cyan: #00F0FF;       /* Cyber Hologram Cyan */
+
       /* Typography */
       --text-primary: #F8FAFC;
       --text-secondary: #94A3B8;
@@ -264,7 +265,7 @@
 
     .terminal-body {
       padding: 1.25rem 1.4rem;
-      font-size: 0.78rem; /* Slightly smaller size so code fits on one line */
+      font-size: 0.78rem;
       color: #D1D5DB;
       line-height: 1.65;
       overflow-x: auto;
@@ -541,20 +542,149 @@
       border-color: var(--gold);
     }
 
-    /* Footer with Himalayan Silhouette */
+    /* Social Links Styling */
+    .social-links-wrapper {
+      margin-top: 1.5rem;
+    }
+
+    .social-links-wrapper h4 {
+      font-family: var(--font-code);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.25s ease;
+    }
+
+    .social-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .social-btn:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+      background: rgba(229, 169, 60, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Holographic Mount Everest & Motto Container */
+    .everest-hologram-section {
+      position: relative;
+      padding: 6rem 0 3rem 0;
+      text-align: center;
+      overflow: hidden;
+      background: linear-gradient(180deg, transparent 0%, rgba(15, 20, 32, 0.6) 100%);
+    }
+
+    .hologram-viewport {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Scanline Laser Effect Overlay */
+    .scanline-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 240, 255, 0.03),
+        rgba(0, 240, 255, 0.03) 1px,
+        transparent 1px,
+        transparent 4px
+      );
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .everest-holo-svg {
+      width: 100%;
+      max-width: 680px;
+      height: auto;
+      max-height: 220px;
+      filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.4)) drop-shadow(0 0 30px rgba(229, 169, 60, 0.3));
+      animation: holoFlicker 6s infinite ease-in-out;
+    }
+
+    @keyframes holoFlicker {
+      0%, 100% { opacity: 0.88; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.015); }
+      52% { opacity: 0.82; }
+      54% { opacity: 0.98; }
+    }
+
+    /* Hologram Base Projector Glow */
+    .holo-emitter-beam {
+      width: 80%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--holo-cyan), var(--gold), transparent);
+      box-shadow: 0 0 20px 4px rgba(0, 240, 255, 0.6);
+      margin-top: -5px;
+      border-radius: 50%;
+    }
+
+    /* Motto Typography */
+    .motto-holo-quote {
+      margin-top: 2rem;
+      font-family: var(--font-code);
+      font-size: clamp(1.1rem, 3vw, 1.65rem);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #FFFFFF 0%, var(--gold) 50%, var(--crimson) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(229, 169, 60, 0.3);
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid var(--border-bright);
+      position: relative;
+      z-index: 3;
+    }
+
+    .motto-subtext {
+      font-family: var(--font-code);
+      font-size: 0.78rem;
+      color: var(--holo-cyan);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-top: 0.8rem;
+      opacity: 0.8;
+    }
+
+    /* Footer */
     footer {
       position: relative;
       background: #04060A;
       border-top: 1px solid var(--border);
-      padding: 4rem 0 2rem 0;
-      margin-top: 5rem;
-    }
-
-    .himalaya-svg {
-      width: 100%;
-      height: 60px;
-      fill: rgba(229, 169, 60, 0.05);
-      margin-bottom: 2rem;
+      padding: 3rem 0 2rem 0;
     }
 
     .footer-content {
@@ -581,6 +711,10 @@
       .nav-links {
         gap: 1rem;
       }
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -588,7 +722,7 @@
 
   <!-- Permanent Fixed Top Banner Container -->
   <div class="top-fixed-container">
-    
+
     <!-- Motto Banner -->
     <div class="cultural-banner">
       <!-- SVG Flag of Nepal (Left) -->
@@ -738,7 +872,7 @@
       </div>
 
       <div class="projects-grid">
-        
+
         <!-- Attendex Card -->
         <article class="project-card">
           <div>
@@ -802,7 +936,7 @@
       </div>
 
       <div class="skills-grid">
-        
+
         <div class="skill-category">
           <h3><span>⚡</span> Frontend Engineering</h3>
           <ul class="skill-list">
@@ -842,14 +976,43 @@
         <div>
           <span class="section-tag">// 04. Communication Channel</span>
           <h2 class="section-title" style="margin-bottom: 1rem;">Let’s Build Next-Gen Products</h2>
-          <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
             Whether you need a full-stack SaaS platform, custom technical architecture, or enterprise consultation, send a direct message below.
           </p>
 
-          <div style="font-family: var(--font-code); font-size: 0.9rem; color: var(--gold);">
-            <p style="margin-bottom: 0.5rem;">Direct Email: hello@mukundapoudel.com.np</p>
-            <p style="margin-bottom: 0.5rem;">GitHub: github.com/nepshroudy</p>
-            <p>Location: United Kingdom / Nepal</p>
+          <div style="font-family: var(--font-code); font-size: 0.88rem; color: var(--gold); margin-bottom: 1.5rem;">
+            <p style="margin-bottom: 0.4rem;">Direct Email: hello@mukundapoudel.com.np</p>
+            <p style="margin-bottom: 0.4rem;">Location: United Kingdom / Nepal</p>
+          </div>
+
+          <!-- Social Links Grid -->
+          <div class="social-links-wrapper">
+            <h4>// Social Media Networks</h4>
+            <div class="social-links">
+              <!-- Twitter / X -->
+              <a href="https://x.com/nepshroudy" target="_blank" rel="noopener" class="social-btn" title="Twitter / X">
+                <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                <span>Twitter / X</span>
+              </a>
+
+              <!-- Instagram -->
+              <a href="https://instagram.com/nepshroudy" target="_blank" rel="noopener" class="social-btn" title="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <span>Instagram</span>
+              </a>
+
+              <!-- Facebook -->
+              <a href="https://facebook.com/nepshroudy" target="_blank" rel="noopener" class="social-btn" title="Facebook">
+                <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <span>Facebook</span>
+              </a>
+
+              <!-- TikTok -->
+              <a href="https://tiktok.com/@nepshroudy" target="_blank" rel="noopener" class="social-btn" title="TikTok">
+                <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.57-1.33 1.54-1.34 2.55-.07 1.22.61 2.42 1.67 2.98.98.54 2.21.53 3.16-.03.88-.51 1.45-1.48 1.51-2.5.08-2.72.03-5.45.04-8.17.01-3.23.01-6.47.01-9.7z"/></svg>
+                <span>TikTok</span>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -882,13 +1045,70 @@
 
   </main>
 
-  <!-- Footer with Himalayan SVG Mountain Accent -->
+  <!-- Mount Everest Hologram & Quote Section -->
+  <section class="everest-hologram-section">
+    <div class="scanline-grid"></div>
+
+    <div class="container hologram-viewport">
+      
+      <!-- Holographic Mount Everest Wireframe SVG -->
+      <svg class="everest-holo-svg" viewBox="0 0 1000 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Laser Wireframe Grid Structure -->
+        <g stroke="var(--holo-cyan)" stroke-width="0.8" opacity="0.6">
+          <path d="M0,320 L180,210 L310,260 L500,30 L660,220 L780,120 L910,240 L1000,320" stroke-dasharray="3 3"/>
+          <path d="M500,30 L380,140 L280,240 M500,30 L610,150 L720,220" stroke-width="1.2" stroke="var(--gold)"/>
+          <path d="M500,30 L450,110 L540,180 L500,320" stroke="var(--crimson)" stroke-width="1"/>
+          <!-- Ridge Contours -->
+          <line x1="500" y1="30" x2="500" y2="320" stroke-opacity="0.3"/>
+          <line x1="180" y1="210" x2="820" y2="210" stroke-opacity="0.2"/>
+          <line x1="310" y1="260" x2="780" y2="260" stroke-opacity="0.2"/>
+          <line x1="100" y1="280" x2="900" y2="280" stroke-opacity="0.15"/>
+        </g>
+
+        <!-- Secondary Glowing Peaks -->
+        <path d="M0,320 L180,210 L310,260 L500,30 L660,220 L780,120 L910,240 L1000,320 Z" fill="url(#everest-holo-gradient)" opacity="0.35"/>
+
+        <!-- Summit Beacon Arc -->
+        <circle cx="500" cy="30" r="4" fill="var(--gold)"/>
+        <circle cx="500" cy="30" r="12" stroke="var(--holo-cyan)" stroke-width="0.8" opacity="0.8"/>
+
+        <!-- Gradient Definitions -->
+        <defs>
+          <linearGradient id="everest-holo-gradient" x1="500" y1="30" x2="500" y2="320" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#00F0FF" stop-opacity="0.8"/>
+            <stop offset="0.5" stop-color="#E5A93C" stop-opacity="0.3"/>
+            <stop offset="1" stop-color="#07090E" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <!-- Laser Base Emitter -->
+      <div class="holo-emitter-beam"></div>
+
+      <!-- Core Ethos Motto Quote -->
+      <div class="motto-holo-quote">
+        "Giving up is not in my blood"
+      </div>
+      <div class="motto-subtext">
+        ▲ Himalayan Elevation • Unyielding Resilience ▲
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <svg class="himalaya-svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <path d="M0,120 L150,40 L280,90 L450,10 L600,80 L750,20 L920,85 L1080,30 L1200,120 Z"></path>
-    </svg>
     <div class="container footer-content">
       <p>&copy; <span id="year"></span> Mukunda Poudel. All rights reserved.</p>
+      
+      <!-- Footer Quick Socials -->
+      <div style="display:flex; gap:1.2rem; align-items:center;">
+        <a href="https://x.com/nepshroudy" target="_blank" rel="noopener" style="color:var(--text-muted);" title="Twitter / X">Twitter / X</a>
+        <a href="https://instagram.com/nepshroudy" target="_blank" rel="noopener" style="color:var(--text-muted);" title="Instagram">Instagram</a>
+        <a href="https://facebook.com/nepshroudy" target="_blank" rel="noopener" style="color:var(--text-muted);" title="Facebook">Facebook</a>
+        <a href="https://tiktok.com/@nepshroudy" target="_blank" rel="noopener" style="color:var(--text-muted);" title="TikTok">TikTok</a>
+      </div>
+
       <p>Designed with Nepalese Heritage & Precision Engineering</p>
     </div>
   </footer>
